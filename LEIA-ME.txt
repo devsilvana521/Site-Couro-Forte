@@ -1,0 +1,106 @@
+SITE — BOTINAS COURO FORTE
+==========================
+
+O QUE TEM NESTA PASTA
+  index.html      -> o site (catálogo, carrinho, contato)
+  painel.html     -> PAINEL DA FÁBRICA: pedidos e representantes
+  style.css       -> cores e visual
+  script.js       -> catálogo, filtros, modo claro/escuro
+  carrinho.js     -> carrinho de pedidos
+  painel.js       -> funcionamento do painel
+  dados.js        -> onde os dados são guardados (não precisa mexer)
+  config.js       -> link da planilha do Google (veja abaixo)
+  produtos.js     -> A LISTA DE BOTINAS
+  fotos/          -> fotos das botinas (fotos/p = pequenas, fotos/recorte = sem fundo)
+  vendor/         -> ícones do site (não mexer)
+  planilha-google/Codigo.gs -> código para ligar o site à planilha do Google
+  PLANILHA-GOOGLE.txt       -> passo a passo da planilha
+
+A LOGO
+  Já está na pasta  image/  (logo-branca.png, logo-escura.png e o
+  ícone da aba do navegador favicon.png). Não precisa fazer nada.
+
+---------------------------------------------------------------------
+CARRINHO (no site)
+  1. O cliente abre a botina, toca na numeração (pode escolher vários
+     números e vários pares) e clica em "Adicionar ao carrinho".
+  2. No carrinho (ícone no topo), clica em "Finalizar pedido", preenche
+     nome, WhatsApp, cidade e escolhe QUEM ATENDEU (o representante).
+  3. O pedido ganha um número e vai para a LISTA DE PEDIDOS do Painel.
+     Depois o cliente toca em "Enviar pedido pelo WhatsApp" e a fábrica
+     recebe o pedido completo.
+
+LINK DO REPRESENTANTE
+  No Painel, aba Representantes, clique no ícone de corrente (link) do
+  representante. Mande esse link para ele. Todo pedido feito pelo site
+  aberto por esse link fica marcado como venda dele, sem o cliente
+  precisar escolher nada.
+
+---------------------------------------------------------------------
+PAINEL DA FÁBRICA — "Área do administrador"
+  O botão "Área do administrador" fica no alto do site (no celular: "Admin")
+  e também no rodapé.
+
+  SENHA
+   - No primeiro acesso, o painel pede para você CRIAR uma senha.
+     Anote num lugar seguro.
+   - Depois disso, sempre pede a senha para entrar. Botão "Sair" no topo.
+   - Para trocar: dentro do painel, botão "Trocar senha" (lá embaixo).
+   - Sem a planilha do Google, a senha vale para o computador onde foi
+     criada. Com a planilha ligada, a senha é a do script da planilha.
+
+  Aba PEDIDOS
+   - Todos os pedidos, com número, cliente, representante e pares.
+   - Mude a situação: Novo, Confirmado, Em produção, Enviado,
+     Entregue ou Cancelado.
+   - Olho = ver o pedido completo (e trocar o representante, se o
+     cliente marcou errado).  WhatsApp = falar com o cliente.
+   - "Vendas por representante": ranking de pares e pedidos de cada um.
+     Clique num representante para ver só os pedidos dele.
+   - Clique no OLHO para abrir o pedido. Lá você coloca:
+       * O PREÇO DE CADA PAR (ou "Mesmo preço para todos" + Aplicar),
+         DESCONTO e FRETE. O total é somado sozinho.
+       * A COMISSÃO do representante em %: já vem a % do cadastro dele,
+         e o painel mostra quanto ele ganha (sobre os produtos, sem o frete).
+         Marque "Comissão já paga" quando pagar.
+       * A FORMA DE PAGAMENTO: Pix, Dinheiro, Débito, Crédito à vista,
+         Crédito parcelado ou Boleto.
+         Para boleto e crédito parcelado, escolha o prazo (30, 30/60,
+         30/60/90...) ou o nº de parcelas. As datas de vencimento têm
+         CALENDÁRIO e podem ser mudadas uma a uma.
+       * Marque "Recebido?" em cada parcela quando o dinheiro entrar.
+   - CONTAS A RECEBER: lista das parcelas em aberto, por data de
+     vencimento. As atrasadas ficam em vermelho. O botão "Recebido"
+     dá baixa na hora.
+   - No alto: total vendido, quanto já recebeu e quanto falta receber.
+   - "Mandar resumo ao cliente" manda pelo WhatsApp o total, a forma
+     de pagamento e as datas das parcelas.
+  Aba REPRESENTANTES
+   - Novo representante: nome, telefone, cidade onde mora, estado,
+     loja, CPF/CNPJ, região, tipo, situação, comissão e observações.
+   - Corrente = link de vendas | Lápis = editar | Lixeira = excluir.
+  Backup e planilhas
+   - "Planilha de pedidos" e "Planilha de representantes" abrem no Excel.
+   - "Fazer backup" guarda tudo num arquivo. "Restaurar backup" traz de volta.
+
+---------------------------------------------------------------------
+ONDE OS DADOS FICAM GUARDADOS  (IMPORTANTE)
+  Do jeito que está (config.js sem link):
+   - Pedidos e representantes ficam salvos NO COMPUTADOR onde foram feitos.
+   - Pedidos que os clientes fazem no celular deles chegam pelo WhatsApp,
+     mas NÃO aparecem na lista do seu Painel.
+   - Faça backup de vez em quando.
+
+  Para que TODOS os pedidos, de qualquer celular, caiam no seu Painel:
+   - Ligue o site a uma planilha do Google (grátis, 10 minutos).
+   - Siga o arquivo PLANILHA-GOOGLE.txt.
+
+---------------------------------------------------------------------
+BOTINAS E PREÇOS
+  Adicionar botina: coloque a foto na pasta fotos/ (e uma cópia menor em
+  fotos/p/), abra o produtos.js, copie uma linha e troque os dados.
+  Mostrar preço: no produtos.js troque  preco: ""  por  preco: "199,90".
+  Com preço, o carrinho soma o valor do pedido sozinho.
+
+TROCAR O WHATSAPP OU O ENDEREÇO DO MAPA
+  No começo do script.js: WHATSAPP e ENDERECO_MAPA.

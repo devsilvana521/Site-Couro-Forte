@@ -1,0 +1,76 @@
+LIGAR O SITE A UMA PLANILHA DO GOOGLE (GRÁTIS)
+==============================================
+
+PARA QUE SERVE
+  Sem a planilha, os pedidos e os representantes ficam salvos só no
+  computador onde foram feitos. O cliente que compra pelo celular dele
+  manda o pedido pelo WhatsApp, mas esse pedido não aparece na sua
+  lista de pedidos.
+
+  Com a planilha, TODO pedido feito no site, em qualquer celular ou
+  computador, cai na sua lista de pedidos, com o nome do representante
+  que fez a venda. Você também abre o Painel em qualquer computador.
+
+  Leva uns 10 minutos e só precisa ser feito uma vez.
+  Você precisa de uma conta Google (a mesma do Gmail).
+
+
+PASSO 1 - CRIAR A PLANILHA
+  1. Entre em  sheets.google.com  com a sua conta Google.
+  2. Clique em "Em branco" para criar uma planilha nova.
+  3. Dê um nome para ela, por exemplo: Pedidos Couro Forte
+
+
+PASSO 2 - COLAR O CÓDIGO
+  1. Na planilha, clique no menu  Extensões  >  Apps Script.
+  2. Vai abrir uma página com um código pequeno escrito "function myFunction".
+     Apague tudo o que estiver escrito ali.
+  3. Abra o arquivo  planilha-google/Codigo.gs  (que veio junto com o site)
+     no Bloco de Notas, copie TUDO e cole no Apps Script.
+  4. Na linha que diz:
+         const SENHA = "TROQUE-ESTA-SENHA";
+     troque TROQUE-ESTA-SENHA por uma senha só sua. Exemplo:
+         const SENHA = "botina2026";
+     Essa é a senha que o Painel vai pedir. Não conte para ninguém.
+  5. Clique no ícone de disquete (Salvar).
+
+
+PASSO 3 - PUBLICAR
+  1. No canto de cima, à direita, clique no botão azul  Implantar
+     >  Nova implantação.
+  2. Clique na engrenagem ao lado de "Selecionar tipo" e escolha
+     App da Web.
+  3. Preencha assim:
+       Descrição:          Site Couro Forte
+       Executar como:      Eu (o seu e-mail)
+       Quem pode acessar:  Qualquer pessoa
+  4. Clique em  Implantar.
+  5. O Google vai pedir permissão. Clique em  Autorizar acesso,
+     escolha a sua conta e, se aparecer "O Google não verificou este app",
+     clique em  Avançado  >  Acessar Site Couro Forte (não seguro)  >  Permitir.
+     (Isso aparece porque o código é seu, feito para você. É normal.)
+  6. Vai aparecer o  URL do app da Web , um link que termina em  /exec
+     Clique em  Copiar.
+
+
+PASSO 4 - COLOCAR O LINK NO SITE
+  1. Abra o arquivo  config.js  do site no Bloco de Notas.
+  2. Na linha  const PLANILHA_URL = "";  cole o link entre as aspas:
+         const PLANILHA_URL = "https://script.google.com/macros/s/AKfy..../exec";
+  3. Salve o arquivo e envie o site de novo para a hospedagem.
+
+
+PRONTO! PARA CONFERIR
+  - Abra o Painel (painel.html). Ele vai pedir a senha do Passo 2.
+  - Cadastre um representante e faça um pedido de teste pelo site.
+  - Abra a planilha: vão aparecer as abas  Pedidos  e  Representantes.
+
+IMPORTANTE
+  - Os representantes que você já cadastrou neste computador NÃO vão
+    sozinhos para a planilha. Antes de colocar o link no config.js, abra
+    o Painel e clique em "Fazer backup". Depois de ligar a planilha,
+    entre no Painel e clique em "Restaurar backup" com esse arquivo.
+  - Não apague as colunas "id" e "dados (não mexer)" da planilha.
+  - Você pode mudar a coluna "Situação" direto na planilha, se quiser.
+  - Se mudar o código do Apps Script depois, publique de novo em
+    Implantar > Gerenciar implantações > lápis > Versão: Nova versão.

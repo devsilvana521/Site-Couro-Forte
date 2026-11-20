@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel da Fábrica · Botinas Couro Forte</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1c120c">
+  <link rel="icon" type="image/png" href="./image/favicon.png">
+  <link rel="apple-touch-icon" href="./image/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="./vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script>
+    try { if (localStorage.getItem("cf-tema") === "escuro") document.documentElement.setAttribute("data-tema", "escuro"); } catch (e) {}
+  </script>
+</head>
+<body class="pagina-rep">
+
+  <header class="header">
+    <div class="wrap header-in">
+      <a href="./index.html" class="brand" aria-label="Voltar ao site">
+        <img src="./image/logo-branca.png" alt="Botinas Couro Forte - Uberaba, desde 1990" class="brand-logo-full">
+        <span class="brand-sub">Painel da fábrica</span>
+      </a>
+      <div class="header-acoes">
+        <a href="./index.html" class="btn btn-ghost voltar"><i class="fa-solid fa-arrow-left"></i><span>Voltar ao site</span></a>
+        <button type="button" class="btn btn-ghost voltar" id="sair" hidden><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></button>
+        <div class="tema" role="group" aria-label="Aparência do site">
+          <button type="button" data-tema="claro" aria-pressed="true" title="Modo claro"><i class="fa-solid fa-sun"></i><span>Claro</span></button>
+          <button type="button" data-tema="escuro" aria-pressed="false" title="Modo escuro"><i class="fa-solid fa-moon"></i><span>Escuro</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="rep-main">
+    <div class="wrap">
+
+      <div class="rep-topo">
+        <div>
+          <p class="eyebrow dark"><span class="line"></span> Área interna</p>
+          <h1>Painel da fábrica</h1>
+          <p class="rep-sub"><span class="modo" id="modo"></span></p>
+        </div>
+        <div class="topo-btns" id="topoBtns" hidden>
+          <a href="./index.html#catalogo" class="btn btn-ghost-dark"><i class="fa-solid fa-cart-plus"></i> Fazer um pedido</a>
+          <button class="btn btn-gold" id="btnNovo"><i class="fa-solid fa-user-plus"></i> Novo representante</button>
+        </div>
+      </div>
+
+      <!-- login do administrador -->
+      <form class="login" id="login" hidden>
+        <i class="fa-solid fa-user-shield"></i>
+        <h2 id="loginTitulo">Área do administrador</h2>
+        <p id="loginTexto">Digite a senha para entrar.</p>
+        <div class="senha-campo">
+          <input type="password" id="senha" placeholder="Senha" autocomplete="current-password">
+          <button type="button" class="ver-senha" data-ver-senha="senha" aria-label="Mostrar senha"><i class="fa-regular fa-eye"></i></button>
+        </div>
+        <div class="senha-campo" id="senha2Box" hidden>
+          <input type="password" id="senha2" placeholder="Repita a senha" autocomplete="new-password">
+          <button type="button" class="ver-senha" data-ver-senha="senha2" aria-label="Mostrar senha"><i class="fa-regular fa-eye"></i></button>
+        </div>
+        <p class="rep-erro" id="loginErro" hidden></p>
+        <button class="btn btn-gold" type="submit" id="loginBtn"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+        <button type="button" class="btn-link" id="loginCancelar" hidden>Cancelar</button>
+        <p class="login-dica" id="loginDica"></p>
+      </form>
+
+      <div id="conteudo" hidden>
+        <div class="abas" role="tablist">
+          <button class="aba active" data-aba="pedidos" role="tab"><i class="fa-solid fa-receipt"></i> Pedidos <b id="abaNPed">0</b></button>
+          <button class="aba" data-aba="representantes" role="tab"><i class="fa-solid fa-user-tie"></i> Representantes <b id="abaNRep">0</b></button>
+          <button class="aba-atualizar" id="atualizar" title="Atualizar"><i class="fa-solid fa-rotate"></i><span> Atualizar</span></button>
+        </div>
+
+        <!-- ================= PEDIDOS ================= -->
+        <section id="aba-pedidos">
+          <div class="rep-numeros">
+            <div><strong id="pTotal">0</strong><span>pedidos</span><small id="pNovos"></small></div>
+            <div><strong id="pPares">0</strong><span>pares vendidos</span><small id="pMes"></small></div>
+            <div class="din"><strong id="pVendido">R$ 0</strong><span>total vendido</span><small id="pRecebido"></small></div>
+            <div class="din"><strong id="pReceber">R$ 0</strong><span>a receber</span><small id="pAtraso"></small></div>
+          </div>
+
+          <div class="receber" id="receberBox">
+            <div class="receber-topo">
+              <h2><i class="fa-regular fa-calendar-check"></i> Contas a receber</h2>
+              <button class="btn-link" id="receberTodos" hidden>Ver todas</button>
+            </div>
+            <div class="receber-lista" id="receberLista"></div>
+          </div>
+
+          <div class="vendas-rep">
+            <h2><i class="fa-solid fa-trophy"></i> Vendas e comissões por representante</h2>
+            <div class="vendas-grid" id="vendasRep"></div>
+          </div>
+
+          <div class="rep-filtros filtros-ped">
+            <label class="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="pBusca" placeholder="Buscar por nº do pedido, cliente ou cidade">
+            </label>
+            <select id="pFiltroRep" aria-label="Filtrar por representante"><option value="">Representante: todos</option></select>
+            <select id="pFiltroSit" aria-label="Filtrar por situação"><option value="">Situação: todas</option></select>
+          </div>
+
+          <div class="rep-lista-wrap">
+            <table class="rep-tabela tabela-ped">
+              <thead>
+                <tr><th>Pedido</th><th>Cliente</th><th>Representante</th><th>Pares</th><th>Valor</th><th>Pagamento</th><th>Situação</th><th class="t-acoes">Ações</th></tr>
+              </thead>
+              <tbody id="pCorpo"></tbody>
+            </table>
+            <div class="rep-vazio" id="pVazio" hidden>
+              <i class="fa-solid fa-receipt"></i>
+              <h3 id="pVazioTitulo">Nenhum pedido ainda</h3>
+              <p id="pVazioTexto">Quando alguém finalizar um pedido no carrinho do site, ele aparece aqui.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= REPRESENTANTES ================= -->
+        <section id="aba-representantes" hidden>
+          <div class="rep-numeros">
+            <div><strong id="nTotal">0</strong><span>cadastrados</span></div>
+            <div><strong id="nAtivos">0</strong><span>ativos</span></div>
+            <div><strong id="nEstados">0</strong><span>estados</span></div>
+            <div><strong id="nMes">0</strong><span>novos este mês</span></div>
+          </div>
+
+          <div class="rep-filtros">
+            <label class="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="rBusca" placeholder="Buscar por nome, cidade, loja ou telefone">
+            </label>
+            <select id="rFiltroUF" aria-label="Filtrar por estado"><option value="">Estado: todos</option></select>
+            <select id="rFiltroSit" aria-label="Filtrar por situação">
+              <option value="">Situação: todas</option>
+              <option>Ativo</option>
+              <option>Em análise</option>
+              <option>Inativo</option>
+            </select>
+          </div>
+
+          <div class="rep-lista-wrap">
+            <table class="rep-tabela" id="rTabela">
+              <thead>
+                <tr><th>Representante</th><th>Contato</th><th>Cidade / UF</th><th>Vendas</th><th>Situação</th><th>Desde</th><th class="t-acoes">Ações</th></tr>
+              </thead>
+              <tbody id="rCorpo"></tbody>
+            </table>
+            <div class="rep-vazio" id="rVazio" hidden>
+              <i class="fa-solid fa-users"></i>
+              <h3 id="rVazioTitulo">Nenhum representante cadastrado ainda</h3>
+              <p id="rVazioTexto">Clique em <strong>Novo representante</strong> para fazer o primeiro cadastro.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= BACKUP ================= -->
+        <section class="rep-backup">
+          <div>
+            <h2><i class="fa-solid fa-shield-halved"></i> Guardar os dados</h2>
+            <p id="textoBackup"></p>
+          </div>
+          <div class="rep-backup-btns">
+            <button class="btn btn-dark" id="btnPlanPed"><i class="fa-solid fa-file-excel"></i> Planilha de pedidos</button>
+            <button class="btn btn-dark" id="btnPlanRep"><i class="fa-solid fa-file-excel"></i> Planilha de representantes</button>
+            <button class="btn btn-dark" id="btnBackup"><i class="fa-solid fa-download"></i> Fazer backup</button>
+            <label class="btn btn-ghost-dark"><i class="fa-solid fa-upload"></i> Restaurar backup<input type="file" id="arqBackup" accept=".json,application/json" hidden></label>
+            <button class="btn btn-ghost-dark" id="trocarSenha"><i class="fa-solid fa-key"></i> Trocar senha</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="carregando" id="carregando"><i class="fa-solid fa-spinner fa-spin"></i> Carregando...</div>
+    </div>
+  </main>
+
+  <!-- ===== Formulário do representante ===== -->
+  <div class="modal" id="rModal" hidden>
+    <div class="modal-bg" data-fechar></div>
+    <div class="modal-box rep-form-box" role="dialog" aria-modal="true" aria-labelledby="rFormTitulo">
+      <button class="modal-x" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <form id="rForm" class="rep-form" novalidate>
+        <h2 id="rFormTitulo">Novo representante</h2>
+        <p class="form-note">Os campos com <b>*</b> são obrigatórios.</p>
+        <fieldset>
+          <legend>Dados pessoais</legend>
+          <div class="campos">
+            <label class="c-2">Nome completo *<input name="nome" required minlength="3" placeholder="Ex: João da Silva"></label>
+            <label>CPF ou CNPJ<input name="documento" inputmode="numeric" placeholder="000.000.000-00"></label>
+            <label>Empresa / Loja<input name="empresa" placeholder="Ex: Agropecuária Boa Vista"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Contato e endereço</legend>
+          <div class="campos">
+            <label>Telefone / WhatsApp *<input name="whatsapp" required inputmode="tel" placeholder="(34) 99999-9999"></label>
+            <label>E-mail<input name="email" type="email" placeholder="nome@email.com"></label>
+            <label>Cidade onde mora *<input name="cidade" required placeholder="Ex: Uberlândia"></label>
+            <label>Estado *<select name="uf" required id="rUF"><option value="">Selecione</option></select></label>
+            <label class="c-2">Região que atende<input name="regiao" placeholder="Ex: Triângulo Mineiro e Alto Paranaíba"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Revenda</legend>
+          <div class="campos">
+            <label>Tipo
+              <select name="tipo"><option>Representante</option><option>Revendedor</option><option>Loja / Lojista</option><option>Atacadista</option></select>
+            </label>
+            <label>Situação
+              <select name="situacao"><option>Ativo</option><option>Em análise</option><option>Inativo</option></select>
+            </label>
+            <label>Comissão (%)<input name="comissao" inputmode="decimal" placeholder="Ex: 10"></label>
+            <label>Data de início<input name="inicio" type="date"></label>
+            <label class="c-2">Observações<textarea name="obs" rows="3" placeholder="Linhas que mais vende, forma de pagamento combinada, etc."></textarea></label>
+          </div>
+        </fieldset>
+        <p class="rep-erro" id="rErro" hidden></p>
+        <div class="rep-form-btns">
+          <button type="button" class="btn btn-ghost-dark" data-fechar>Cancelar</button>
+          <button type="submit" class="btn btn-gold" id="rSalvar"><i class="fa-solid fa-check"></i> <span id="rSalvarTxt">Salvar cadastro</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Link do representante ===== -->
+  <div class="modal" id="lModal" hidden>
+    <div class="modal-bg" data-fechar-link></div>
+    <div class="modal-box rep-confirma link-box" role="dialog" aria-modal="true" aria-labelledby="lTitulo">
+      <button class="modal-x" data-fechar-link aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <i class="fa-solid fa-link"></i>
+      <h3 id="lTitulo">Link de vendas</h3>
+      <p>Mande este link para <strong id="lNome"></strong>. Todo pedido feito no site por esse link fica marcado como venda dele.</p>
+      <input type="text" id="lUrl" readonly>
+      <div class="rep-form-btns">
+        <button class="btn btn-dark" id="lCopiar"><i class="fa-regular fa-copy"></i> Copiar link</button>
+        <a class="btn btn-whats" id="lWhats" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Mandar para ele</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Detalhe do pedido ===== -->
+  <div class="modal" id="pModal" hidden>
+    <div class="modal-bg" data-fechar-ped></div>
+    <div class="modal-box rep-form-box ped-box" role="dialog" aria-modal="true" aria-labelledby="pdTitulo">
+      <button class="modal-x" data-fechar-ped aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div class="ped-det" id="pDetalhe"></div>
+    </div>
+  </div>
+
+  <!-- ===== Confirmação de exclusão ===== -->
+  <div class="modal" id="rConfirma" hidden>
+    <div class="modal-bg" data-nao></div>
+    <div class="modal-box rep-confirma" role="alertdialog" aria-modal="true" aria-labelledby="rConfTitulo">
+      <i class="fa-solid fa-trash-can"></i>
+      <h3 id="rConfTitulo">Excluir?</h3>
+      <p id="rConfTexto"></p>
+      <div class="rep-form-btns">
+        <button class="btn btn-ghost-dark" data-nao>Cancelar</button>
+        <button class="btn btn-perigo" id="rConfSim">Sim, excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="aviso" id="rAviso" role="status" aria-live="polite"></div>
+
+  <script src="./config.js"></script>
+  <script src="./dados.js"></script>
+  <script src="./painel.js"></script>
+</body>
+</html>

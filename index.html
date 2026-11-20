@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Botinas Couro Forte · Fábrica de botinas de couro em Uberaba-MG desde 1990</title>
+  <meta name="description" content="Botinas de couro legítimo fabricadas em Uberaba-MG desde 1990. Modelos adulto, feminino e infantil. Peça pelo WhatsApp (34) 3315-0163 e receba em todo o Brasil.">
+  <meta property="og:title" content="Botinas Couro Forte · Desde 1990">
+  <meta property="og:description" content="Botinas de couro legítimo feitas em Uberaba-MG. Peça pelo WhatsApp.">
+  <meta property="og:image" content="./image/compartilhar.jpg">
+  <meta name="theme-color" content="#1c120c">
+  <link rel="icon" type="image/png" href="./image/favicon.png">
+  <link rel="apple-touch-icon" href="./image/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="./vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script>
+    /* aplica o tema salvo antes de mostrar a página (evita "piscar") */
+    try { if (localStorage.getItem("cf-tema") === "escuro") document.documentElement.setAttribute("data-tema", "escuro"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- ============ BARRA DO TOPO ============ -->
+  <div class="topbar">
+    <div class="wrap topbar-in">
+      <span><i class="fa-solid fa-location-dot"></i> Fábrica em Uberaba-MG</span>
+      <span class="hide-sm"><i class="fa-solid fa-truck-fast"></i> Enviamos para todo o Brasil</span>
+      <span class="topbar-dir">
+        <a href="https://www.instagram.com/botinas.couroforte/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> <span class="hide-sm">@botinas.couroforte</span></a>
+        <a href="./painel.html" class="topbar-admin"><i class="fa-solid fa-lock"></i> <span class="hide-sm">Área do administrador</span><span class="so-sm">Admin</span></a>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============ CABEÇALHO ============ -->
+  <header class="header" id="topo">
+    <div class="wrap header-in">
+      <a href="#inicio" class="brand" aria-label="Botinas Couro Forte - início">
+        <img src="./image/logo-branca.png" alt="Botinas Couro Forte - Uberaba, desde 1990" class="brand-logo-full">
+      </a>
+
+      <nav class="nav" id="menu" aria-label="Menu principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#linhas">Linhas</a>
+        <a href="#fabrica">A Fábrica</a>
+        <a href="#revenda">Revenda</a>
+        <a href="#contato">Contato</a>
+        <a href="#" class="btn btn-whats nav-cta js-whats"><i class="fa-brands fa-whatsapp"></i> Pedir agora</a>
+      </nav>
+
+      <div class="header-acoes">
+        <button type="button" class="carrinho-btn" id="abrirCarrinho" aria-label="Abrir carrinho">
+          <i class="fa-solid fa-cart-shopping"></i><span class="carrinho-qtd" id="carrinhoQtd" hidden>0</span>
+        </button>
+        <div class="tema" role="group" aria-label="Aparência do site">
+          <button type="button" data-tema="claro" aria-pressed="true" title="Modo claro"><i class="fa-solid fa-sun"></i><span>Claro</span></button>
+          <button type="button" data-tema="escuro" aria-pressed="false" title="Modo escuro"><i class="fa-solid fa-moon"></i><span>Escuro</span></button>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero-grain"></div>
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="line"></span> Fábrica de calçados · Uberaba-MG</p>
+          <h1>Botina de couro de verdade, <em>feita para durar.</em></h1>
+          <p class="lead">Desde 1990 a Couro Forte fabrica botinas de couro legítimo para o trabalho, o campo e o dia a dia. Modelos adulto, feminino e infantil, com numeração do 20 ao 46.</p>
+          <div class="hero-ctas">
+            <a href="#catalogo" class="btn btn-gold">Ver catálogo <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="btn btn-ghost js-whats"><i class="fa-brands fa-whatsapp"></i> (34) 3315-0163</a>
+          </div>
+          <ul class="hero-facts">
+            <li><strong data-count="35">35</strong><span>anos de fábrica</span></li>
+            <li><strong id="totalModelos">100+</strong><span>modelos no catálogo</span></li>
+            <li><strong>100%</strong><span>couro legítimo</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-ring"></div>
+          <div class="hero-stamp"><span>Desde</span><strong>1990</strong><span>Uberaba · MG</span></div>
+          <img id="heroImg" class="hero-boot" alt="" src="./fotos/recorte/botina-ref-054-solado-agroboot-couro-nobuck-bege-bico-redondo-num-35-ao-45.webp">
+          <div class="hero-tag" id="heroTag">Botina Bordada · Ref 7070</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAIXA ============ -->
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>Couro legítimo</span><i>✦</i><span>Feito em Minas Gerais</span><i>✦</i><span>Bico redondo e quadrado</span><i>✦</i><span>Solado micro, látex, gel e agroboot</span><i>✦</i><span>Atacado e varejo</span><i>✦</i>
+        <span>Couro legítimo</span><i>✦</i><span>Feito em Minas Gerais</span><i>✦</i><span>Bico redondo e quadrado</span><i>✦</i><span>Solado micro, látex, gel e agroboot</span><i>✦</i><span>Atacado e varejo</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section class="section perks">
+      <div class="wrap perks-grid">
+        <article class="perk reveal">
+          <i class="fa-solid fa-scissors"></i>
+          <h3>Fabricação própria</h3>
+          <p>Do corte do couro à última costura, cada par sai da nossa fábrica em Uberaba.</p>
+        </article>
+        <article class="perk reveal">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Couro legítimo</h3>
+          <p>Nobuck, látego, fóssil e graxo selecionados para aguentar a lida do dia a dia.</p>
+        </article>
+        <article class="perk reveal">
+          <i class="fa-solid fa-ruler-horizontal"></i>
+          <h3>Numeração completa</h3>
+          <p>Do infantil 20 ao adulto 46, com opções de bico redondo, bico quadrado e zíper.</p>
+        </article>
+        <article class="perk reveal">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Entrega no Brasil todo</h3>
+          <p>Enviamos pelos Correios e por transportadora, para lojistas e consumidores.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="section catalog" id="catalogo">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow dark"><span class="line"></span> Catálogo</p>
+          <h2>Escolha a sua botina</h2>
+          <p>Filtre por público, linha e tipo de bico. Gostou de um modelo? É só tocar em <strong>Pedir no WhatsApp</strong> que a referência já vai na mensagem.</p>
+        </header>
+
+        <div class="filters">
+          <div class="tabs" role="tablist" id="tabs">
+            <button class="tab active" data-cat="todos">Todos <b></b></button>
+            <button class="tab" data-cat="adulto">Adulto <b></b></button>
+            <button class="tab" data-cat="feminina">Feminina <b></b></button>
+            <button class="tab" data-cat="infantil">Infantil <b></b></button>
+          </div>
+
+          <div class="filter-row">
+            <label class="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="busca" placeholder="Buscar por referência, cor ou couro (ex: 7070, castor, nobuck)">
+            </label>
+            <select id="filtroBico" aria-label="Tipo de bico">
+              <option value="">Bico: todos</option>
+              <option value="Redondo">Bico redondo</option>
+              <option value="Quadrado">Bico quadrado</option>
+            </select>
+            <select id="filtroSolado" aria-label="Tipo de solado">
+              <option value="">Solado: todos</option>
+            </select>
+          </div>
+
+          <div class="chips" id="chips"></div>
+        </div>
+
+        <p class="result-info" id="resultInfo"></p>
+        <div class="grid" id="grid"></div>
+        <div class="more-wrap"><button class="btn btn-dark" id="btnMais">Ver mais modelos</button></div>
+        <div class="empty" id="empty" hidden>
+          <i class="fa-regular fa-face-frown"></i>
+          <p>Nenhum modelo encontrado com esses filtros.</p>
+          <button class="btn btn-dark" id="limpar">Limpar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LINHAS ============ -->
+    <section class="section lines" id="linhas">
+      <div class="wrap">
+        <header class="sec-head light">
+          <p class="eyebrow"><span class="line"></span> Nossas linhas</p>
+          <h2>Uma botina para cada lida</h2>
+          <p>Toque numa linha para ver os modelos dela no catálogo.</p>
+        </header>
+        <div class="lines-grid" id="linesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ A FÁBRICA ============ -->
+    <section class="section factory" id="fabrica">
+      <div class="wrap factory-in">
+        <div class="factory-media reveal">
+          <div class="factory-card">
+            <img id="fabricaImg" src="./fotos/recorte/botina-bordada-ref-7070-solado-micro-couro-nobuck-castor-escovado-bico-redondo-num-33-ao-44.webp" alt="Botina Couro Forte">
+            <span class="factory-tag" id="fabricaTag">Botina Bordada · Ref 7070</span>
+            <div class="factory-dots" id="fabricaDots" aria-hidden="true"></div>
+          </div>
+          <div class="factory-badge"><strong>35+</strong><span>anos de tradição</span></div>
+        </div>
+        <div class="factory-text reveal">
+          <p class="eyebrow dark"><span class="line"></span> Nossa história</p>
+          <h2>Tradição mineira em cada costura</h2>
+          <p>A Couro Forte nasceu em 1990, em Uberaba, Minas Gerais, com uma ideia simples: fazer botina boa, que aguenta o trabalho pesado e continua confortável depois de muitos anos de uso.</p>
+          <p>Hoje fabricamos dezenas de modelos, das linhas clássicas de trabalho às bordadas, de vira francesa e infantis, sempre com couro legítimo e o mesmo cuidado de quando começamos.</p>
+
+          <ol class="steps">
+            <li><span>01</span><div><strong>Seleção do couro</strong><p>Nobuck, látego, fóssil e graxo escolhidos peça por peça.</p></div></li>
+            <li><span>02</span><div><strong>Corte e costura</strong><p>Feitos na nossa fábrica, com mão de obra experiente.</p></div></li>
+            <li><span>03</span><div><strong>Montagem e solado</strong><p>Solados micro, látex, gel, borracha e agroboot.</p></div></li>
+            <li><span>04</span><div><strong>Acabamento</strong><p>Cada par é revisado antes de sair da fábrica.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMO COMPRAR / REVENDA ============ -->
+    <section class="section buy" id="revenda">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow dark"><span class="line"></span> Como comprar</p>
+          <h2>Pedir é rápido e fácil</h2>
+        </header>
+        <div class="buy-grid">
+          <div class="buy-step reveal"><b>1</b><h3>Escolha o modelo</h3><p>Veja o catálogo e anote a referência (Ref) e a cor que você quer.</p></div>
+          <div class="buy-step reveal"><b>2</b><h3>Chame no WhatsApp</h3><p>Toque em “Pedir no WhatsApp” no modelo. A mensagem já vai pronta com a referência.</p></div>
+          <div class="buy-step reveal"><b>3</b><h3>Receba em casa</h3><p>Combinamos numeração, pagamento e frete. Enviamos pelos Correios ou transportadora.</p></div>
+        </div>
+
+        <div class="reseller reveal">
+          <div>
+            <p class="eyebrow"><span class="line"></span> Para lojistas</p>
+            <h3>Quer revender botinas Couro Forte?</h3>
+            <p>Atendemos lojas de calçados, casas agropecuárias e revendedores de todo o Brasil com preço de fábrica.</p>
+          </div>
+          <a href="#" class="btn btn-gold js-whats" data-msg="Olá! Tenho interesse em REVENDER as botinas Couro Forte. Pode me passar a tabela de atacado?"><i class="fa-brands fa-whatsapp"></i> Quero ser revendedor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section contact" id="contato">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow dark"><span class="line"></span> Contato</p>
+          <h2>Fale com a fábrica</h2>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-cards">
+            <a class="c-card" href="#" data-maps>
+              <i class="fa-solid fa-location-dot"></i>
+              <div><h3>Endereço</h3><p>R. Ranulfa Fonseca da Cunha, 332<br>Manoel Mendes · Uberaba-MG<br>CEP 38082-151</p></div>
+            </a>
+            <a class="c-card js-whats" href="#">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div><h3>WhatsApp e telefone</h3><p>(34) 3315-0163</p></div>
+            </a>
+            <a class="c-card" href="mailto:vendas@courofortebotinas.com.br">
+              <i class="fa-regular fa-envelope"></i>
+              <div><h3>E-mail</h3><p>vendas@courofortebotinas.com.br</p></div>
+            </a>
+            <div class="c-card">
+              <i class="fa-regular fa-clock"></i>
+              <div><h3>Horário</h3><p>Segunda a sexta: 7h30 às 17h30<br>Almoço: 11h às 12h30</p></div>
+            </div>
+          </div>
+
+          <form class="form" id="form">
+            <h3>Mande sua mensagem</h3>
+            <p class="form-note">Ao enviar, o WhatsApp abre com a sua mensagem pronta.</p>
+            <label>Seu nome<input type="text" id="fNome" required minlength="2" placeholder="Como podemos te chamar?"></label>
+            <label>Cidade / Estado<input type="text" id="fCidade" placeholder="Ex: Uberaba - MG"></label>
+            <label>Assunto
+              <select id="fAssunto" required>
+                <option value="">Selecione</option>
+                <option>Quero comprar uma botina</option>
+                <option>Orçamento para revenda (atacado)</option>
+                <option>Dúvida sobre produtos</option>
+                <option>Encomenda especial</option>
+                <option>Outro assunto</option>
+              </select>
+            </label>
+            <label>Mensagem<textarea id="fMsg" rows="4" required minlength="5" placeholder="Escreva aqui. Se for pedido, informe a referência, a cor e a numeração."></textarea></label>
+            <button class="btn btn-whats full" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+          </form>
+        </div>
+
+        <div class="map">
+          <iframe title="Mapa da fábrica Couro Forte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="footer">
+    <div class="wrap footer-in">
+      <div class="f-brand">
+        <img src="./image/logo-branca.png" alt="Botinas Couro Forte">
+        <p>Fábrica de botinas de couro legítimo em Uberaba-MG desde 1990. Tradição, conforto e durabilidade em cada par.</p>
+        <div class="f-social">
+          <a href="https://www.instagram.com/botinas.couroforte/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="js-whats" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:vendas@courofortebotinas.com.br" aria-label="E-mail"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Catálogo</h4>
+        <a href="#catalogo" data-go="adulto">Botinas adulto</a>
+        <a href="#catalogo" data-go="feminina">Botinas femininas</a>
+        <a href="#catalogo" data-go="infantil">Botinas infantis</a>
+        <a href="#linhas">Todas as linhas</a>
+      </div>
+      <div class="f-col">
+        <h4>Empresa</h4>
+        <a href="#fabrica">Nossa história</a>
+        <a href="#revenda">Seja revendedor</a>
+        <a href="./painel.html"><i class="fa-solid fa-lock"></i> Área do administrador</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="f-col">
+        <h4>Atendimento</h4>
+        <p><i class="fa-solid fa-phone"></i> (34) 3315-0163</p>
+        <p><i class="fa-regular fa-clock"></i> Seg a sex · 7h30 às 17h30</p>
+        <p><i class="fa-solid fa-location-dot"></i> Uberaba-MG</p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <div class="wrap f-bottom-in">
+        <span>© <span id="ano"></span> Botinas Couro Forte. Todos os direitos reservados.</span>
+        <a href="#topo">Voltar ao topo <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ JANELA DO PRODUTO ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitulo">
+      <button class="modal-x" data-close aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-img"><img id="mImg" alt=""><div class="m-thumbs" id="mThumbs"></div></div>
+      <div class="modal-info">
+        <p class="m-linha" id="mLinha"></p>
+        <h3 id="mTitulo"></h3>
+        <p class="m-ref" id="mRef"></p>
+        <dl id="mDados"></dl>
+        <p class="m-preco" id="mPreco"></p>
+        <div class="grade" id="mGrade">
+          <p class="grade-tit">Escolha a numeração <small>Toque no número. Toque de novo para mais pares.</small></p>
+          <div class="grade-nums" id="mNums"></div>
+          <p class="grade-total" id="mGradeTotal"></p>
+        </div>
+        <button type="button" class="btn btn-gold full" id="mAddCarrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar ao carrinho</button>
+        <a href="#" class="btn btn-ghost-dark full" id="mWhats" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Tirar dúvida no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CARRINHO ============ -->
+  <div class="gaveta" id="gaveta" hidden>
+    <div class="gaveta-bg" data-fechar-carrinho></div>
+    <aside class="gaveta-box" role="dialog" aria-modal="true" aria-labelledby="gavetaTitulo">
+      <header class="gaveta-topo">
+        <h2 id="gavetaTitulo"><i class="fa-solid fa-cart-shopping"></i> <span id="gavetaTituloTxt">Seu carrinho</span></h2>
+        <button class="modal-x" data-fechar-carrinho aria-label="Fechar carrinho"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+
+      <!-- passo 1: itens -->
+      <section class="gaveta-passo" id="passoItens">
+        <div class="gaveta-itens" id="carrinhoItens"></div>
+        <div class="gaveta-vazio" id="carrinhoVazio" hidden>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p>Seu carrinho está vazio.</p>
+          <a href="#catalogo" class="btn btn-gold" data-fechar-carrinho>Ver catálogo</a>
+        </div>
+        <footer class="gaveta-rodape" id="carrinhoRodape">
+          <div class="gaveta-resumo"><span>Total de pares</span><strong id="carrinhoPares">0</strong></div>
+          <div class="gaveta-resumo"><span>Valor</span><strong id="carrinhoValor">A combinar</strong></div>
+          <button class="btn btn-gold full" id="irDados">Finalizar pedido <i class="fa-solid fa-arrow-right"></i></button>
+          <button class="btn-link" id="limparCarrinho"><i class="fa-regular fa-trash-can"></i> Esvaziar carrinho</button>
+        </footer>
+      </section>
+
+      <!-- passo 2: dados do cliente -->
+      <section class="gaveta-passo" id="passoDados" hidden>
+        <form id="formPedido" class="form-pedido" novalidate>
+          <button type="button" class="btn-link voltar-itens" id="voltarItens"><i class="fa-solid fa-arrow-left"></i> Voltar aos itens</button>
+          <label>Seu nome *<input name="cliente" required placeholder="Nome completo"></label>
+          <label>WhatsApp *<input name="telefone" required inputmode="tel" placeholder="(34) 99999-9999"></label>
+          <div class="duas">
+            <label>Cidade *<input name="cidade" required placeholder="Sua cidade"></label>
+            <label>Estado *<select name="uf" required id="pedUF"><option value="">UF</option></select></label>
+          </div>
+          <div class="rep-escolha" id="repEscolha">
+            <label>Quem te atendeu?
+              <select name="representanteId" id="pedRep">
+                <option value="">Comprei direto com a fábrica</option>
+              </select>
+            </label>
+            <label id="repOutroBox" hidden>Nome do representante<input name="representanteOutro" placeholder="Digite o nome"></label>
+          </div>
+          <div class="rep-fixo" id="repFixo" hidden>
+            <i class="fa-solid fa-user-tie"></i>
+            <div><small>Representante</small><strong id="repFixoNome"></strong></div>
+            <button type="button" class="btn-link" id="repTrocar">trocar</button>
+          </div>
+          <label>Como prefere pagar?
+            <select name="pagamento">
+              <option>A combinar</option>
+              <option>Pix</option>
+              <option>Cartão de débito</option>
+              <option>Cartão de crédito à vista</option>
+              <option>Cartão de crédito parcelado</option>
+              <option>Boleto</option>
+              <option>Dinheiro</option>
+            </select>
+          </label>
+          <label>Observações<textarea name="obs" rows="2" placeholder="Entrega, prazo, etc."></textarea></label>
+          <p class="rep-erro" id="pedErro" hidden></p>
+          <div class="gaveta-resumo forte"><span><b id="dadosPares">0 pares</b></span><strong id="dadosValor">A combinar</strong></div>
+          <button type="submit" class="btn btn-gold full" id="enviarPedido"><i class="fa-solid fa-check"></i> Confirmar pedido</button>
+        </form>
+      </section>
+
+      <!-- passo 3: pedido feito -->
+      <section class="gaveta-passo pedido-ok" id="passoOk" hidden>
+        <i class="fa-solid fa-circle-check"></i>
+        <h3>Pedido <span id="okNumero"></span> registrado!</h3>
+        <p id="okTexto">Agora envie o pedido pelo WhatsApp para a fábrica confirmar a numeração, o pagamento e o frete.</p>
+        <a href="#" class="btn btn-whats full" id="okWhats" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Enviar pedido pelo WhatsApp</a>
+        <button class="btn btn-ghost-dark full" data-fechar-carrinho>Continuar vendo o catálogo</button>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Botões flutuantes -->
+  <a href="#" class="float-whats js-whats" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <button class="to-top" id="toTop" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="./config.js"></script>
+  <script src="./dados.js"></script>
+  <script src="./produtos.js"></script>
+  <script src="./script.js"></script>
+  <script src="./carrinho.js"></script>
+</body>
+</html>
